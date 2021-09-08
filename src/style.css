@@ -1,0 +1,60 @@
+body {
+text-align: center;
+background: #f7f7f7;
+font-family: 'Hina Mincho', serif; 
+/*width: 85%;*/
+}
+
+img {
+  width: 25px;
+}
+
+.container {
+    margin-top: 20px;
+    background: #aeccc6;
+    /*opacity: 60% #9ba6a5 for sunny - #f4f56e;*/
+    border-radius: 20px;
+}
+
+.card {
+    background: #aeccc6;
+    border-radius: 10px;
+    border-color: #aeccc6;
+    margin-top: 20px;
+    margin-bottom: 20px;    
+    padding: 0px;
+    font-family: 'Coming Soon', cursive;
+    font-size: 18px;
+}
+
+.sun {
+    width: 100px;
+    margin-top: 90px;
+}
+
+#wind {
+    margin-top: 30px;
+    font-size: 25px;
+    text-align: left;
+}
+
+#loc {
+    margin-left: 5px;
+}
+
+#forecast {
+    margin: 0 auto;
+}
+
+#city {
+    font-family: 'Coming Soon', cursive;
+    font-size: 45px;
+}
+
+#phrase-temp {
+    font-size:20px;
+}
+
+#answer-form {
+    background:#f7f7f7;
+}
