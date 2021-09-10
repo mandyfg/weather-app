@@ -2,7 +2,8 @@ body {
 text-align: center;
 background: #f7f7f7;
 font-family: 'Hina Mincho', serif; 
-/*width: 85%;*/
+width: 55%;
+margin: 40px;
 }
 
 img {
@@ -18,18 +19,95 @@ img {
 
 .card {
     background: #aeccc6;
-    border-radius: 10px;
     border-color: #aeccc6;
     margin-top: 20px;
-    margin-bottom: 20px;    
-    padding: 0px;
+    margin-bottom: 20px;
     font-family: 'Coming Soon', cursive;
     font-size: 18px;
 }
 
-.sun {
-    width: 100px;
-    margin-top: 90px;
+.weather-img {
+    width: 110px;
+}
+
+.onoffswitch {
+    position: absolute;
+    left: 565px;
+    top: 68px; 
+    width: 76px;
+    -webkit-user-select:none; 
+    -moz-user-select:none; 
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.onoffswitch-label {
+    display: block; 
+    overflow: hidden; 
+    cursor: pointer;
+    border: 2px solid #999999; 
+    border-radius: 29px;
+}
+
+.onoffswitch-inner {
+    display: block; 
+    width: 200%; 
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; 
+    float: left; 
+    width: 50%; 
+    height: 32px; 
+    padding: 0; 
+    line-height: 32px;
+    font-size: 18px; 
+    color: white; 
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "° C";
+    background-color: #AECCC6; 
+    color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "° F";
+    padding-right: 12px;
+    background-color: #AECCC6; 
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block; 
+    width: 18px; 
+    margin: 7px;
+    background: #FFFFFF;
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    right: 40px;
+    border: 2px solid #999999; 
+    border-radius: 29px;
+    transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
 }
 
 #wind {
@@ -44,6 +122,7 @@ img {
 
 #forecast {
     margin: 0 auto;
+    padding: 0px;
 }
 
 #city {
@@ -57,4 +136,14 @@ img {
 
 #answer-form {
     background:#f7f7f7;
+}
+
+#test {
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 90px;
+}
+
+#search-form {
+    width: 500px;
 }

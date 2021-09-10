@@ -29,7 +29,7 @@
             </div>
         </div>
             <div class="row">
-            <div class="col-6" id="current-city">
+            <div class="col-3" id="current-city">
                 <h2 id="city">
                     Sao Paulo, Brazil
                 </h2>
@@ -37,17 +37,23 @@
                 <h3 id="current-time">
                     Date here
                     <br />
-                    <h4><span id="local-temp">12</span> °C</h4>
-                    <img src="images/thermometer-sun.svg" alt="thermometer">
-                    <br />
-                    <br />
-                    <span id="phrase-temp">Mostly cloudy. It is 12°C currently, the highest will be 21°C.</span>
+                    <h4><span id="local-temp">12</span>°C</h4>
                 </h3>
             </div>
-            <div class="col-2">
-                <img src="images/cloud-sun.svg" width=100px alt="cloud-sun" class="sun">
+            <div class="col-3">
+                <h2 id="test">
+                    
+                </h2>
+                <img src="" alt="" id="icon" class="weather-img">
             </div>
-                    <div class="col-3">
+                    <div class="col-4">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
                     <h4 id="wind">
                         Feels like:
                         <br />
@@ -57,6 +63,9 @@
                         <br />
                         Cloudiness:
                     </h4>
+                    <h3>
+                        <span id="phrase-temp">Mostly cloudy. It is 12°C currently, the highest will be 21°C.</span>
+                    </h3>
                 </div>
             <div class="row" id="forecast">
                 <div class="col">
@@ -119,19 +128,6 @@
                             <br />
                             <p class="temperature">
                                 22°C / 12°C
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            Saturday
-                            <br />
-                            <img src="images/cloud-lightning.svg" alt="cloud-lightning">
-                            <br />
-                            <p class="temperature">
-                                23°C / 11°C
                             </p>
                         </div>
                     </div>
