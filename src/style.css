@@ -41,7 +41,7 @@ img {
 
 .onoffswitch {
     position: fixed;
-    left: 755px;
+    left: 1020px;
     top: 47px; 
     width: 76px;
     -webkit-user-select:none; 
@@ -150,7 +150,7 @@ img {
 }
 
 #search-form {    
-    width: 50%;
+    width: 70%;
     padding-left: 10px;
 }
 
