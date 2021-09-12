@@ -14,6 +14,15 @@ img {
   width: 25px;
 }
 
+.col-5 {
+    padding:0px;
+    margin-top: 60px;
+}
+
+.col {
+    padding: 0px;
+}
+
 .container {
     margin-top: 20px;
     background: #aeccc6;
@@ -137,14 +146,18 @@ img {
 }
 
 #realTemp {
-    margin-top: 50px;
-    font-size: 90px;
+    font-size: 120px;
 }
 
 #search-form {    
     width: 50%;
+    padding-left: 10px;
 }
 
 #icon {    
     width: 120px;
+}
+
+#realMetric {
+    font-size: 25px;
 }
