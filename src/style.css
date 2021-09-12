@@ -30,7 +30,7 @@ img {
 }
 
 .weather-img {
-    width: 110px;
+    width: 120px;
 }
 
 .onoffswitch {
@@ -139,16 +139,15 @@ img {
     font-size:20px;
 }
 
-#answer-form {
-    background:#f7f7f7;
-}
-
 #realTemp {
     margin-top: 50px;
-    font-weight: bold;
     font-size: 90px;
 }
 
-#search-form {
+#search-form {    
     width: 40%;
+}
+
+#weatherIcon {    
+    width: 120px;
 }
