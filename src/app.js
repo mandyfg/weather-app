@@ -13,14 +13,14 @@ function showWeather(response){
   let weatherIcon = response.data.weather[0].icon;
   let clouds = response.data.clouds.all;
   let icon = document.querySelector("#icon");
-  let tempInfo = document.querySelector("h4");
+  //let tempInfo = document.querySelector("h4");
   let currentCity = document.querySelector("#city");
   let phraseTemp = document.querySelector("#phrase-temp");
   let windInfo = document.querySelector("#wind");
   icon.setAttribute ("src", `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`);
   icon.setAttribute ("alt", description);
   currentCity.innerHTML = `${city}, ${country}`; 
-  tempInfo.innerHTML = `${tempC}°C | ${tempF}°F`;
+  //tempInfo.innerHTML = `${tempC}°C | ${tempF}°F`;
   phraseTemp.innerHTML = `Today the maximum will be ${tempMax}°C and the minimum will be ${tempMin}°C. Forecast of ${weather}. Have a wonderful day.`
   windInfo.innerHTML = `Feels like: ${tempFeel}°C <br /> Wind: ${wind} meter / sec <br /> Humidity: ${humidity}% <br /> Cloudiness: ${clouds}%`;
   let test = document.querySelector("#test");

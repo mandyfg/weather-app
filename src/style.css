@@ -2,8 +2,12 @@ body {
 text-align: center;
 background: #f7f7f7;
 font-family: 'Hina Mincho', serif; 
-width: 55%;
-margin: 40px;
+width: 100%;
+margin: 0px;
+}
+
+div {
+    width: 100%;
 }
 
 img {
@@ -13,7 +17,6 @@ img {
 .container {
     margin-top: 20px;
     background: #aeccc6;
-    /*opacity: 60% #9ba6a5 for sunny - #f4f56e;*/
     border-radius: 20px;
 }
 
@@ -31,9 +34,9 @@ img {
 }
 
 .onoffswitch {
-    position: absolute;
-    left: 565px;
-    top: 68px; 
+    position: fixed;
+    left: 630px;
+    top: 47px; 
     width: 76px;
     -webkit-user-select:none; 
     -moz-user-select:none; 
@@ -51,12 +54,12 @@ img {
     overflow: hidden; 
     cursor: pointer;
     border: 2px solid #999999; 
-    border-radius: 29px;
+    border-radius: 40px;
 }
 
 .onoffswitch-inner {
     display: block; 
-    width: 200%; 
+    width: 190%; 
     margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
@@ -78,11 +81,13 @@ img {
     content: "° C";
     background-color: #AECCC6; 
     color: #FFFFFF;
+    text-align:center;
+    padding-right:10px;
 }
 
 .onoffswitch-inner:after {
     content: "° F";
-    padding-right: 12px;
+    padding-right: 10px;
     background-color: #AECCC6; 
     color: #FFFFFF;
     text-align: right;
