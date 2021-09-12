@@ -23,8 +23,8 @@ function showWeather(response){
   //tempInfo.innerHTML = `${tempC}°C | ${tempF}°F`;
   phraseTemp.innerHTML = `Today the maximum will be ${tempMax}°C and the minimum will be ${tempMin}°C. Forecast of ${weather}. Have a wonderful day.`
   windInfo.innerHTML = `Feels like: ${tempFeel}°C <br /> Wind: ${wind} meter / sec <br /> Humidity: ${humidity}% <br /> Cloudiness: ${clouds}%`;
-  let test = document.querySelector("#test");
-  test.innerHTML = `${tempC}`
+  let realTemp = document.querySelector("#realTemp");
+  realTemp.innerHTML = `${tempC}°C`
   console.log(response.data);
 }
 
