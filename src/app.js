@@ -22,6 +22,8 @@ function showWeather(response){
   windInfo.innerHTML = `Feels like: ${tempFeel}°C <br /> Wind: ${wind} meter / sec <br /> Humidity: ${humidity}% <br /> Cloudiness: ${clouds}%`;
   let realTemp = document.querySelector("#realTemp");
   realTemp.innerHTML = `${tempC}`
+  let metric = document.querySelector("#realMetric");
+  metric.innerHTML = "°C"
   console.log(response.data);
   celsiusTemp = tempC;
   tempFeelC = tempFeel;
