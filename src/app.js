@@ -1,6 +1,5 @@
 function showWeather(response){
   let tempC = Math.round(response.data.main.temp);
-//  let tempF = Math.round ((tempC * 9) / 5 + 32);
   let tempMax = Math.round(response.data.main.temp_max);
   let tempMin = Math.round(response.data.main.temp_min);
   let tempFeel = Math.round(response.data.main.feels_like);
@@ -25,6 +24,13 @@ function showWeather(response){
   realTemp.innerHTML = `${tempC}`
   console.log(response.data);
   celsiusTemp = tempC;
+  tempFeelC = tempFeel;
+  tempMaxC = tempMax;
+  tempMinC = tempMin;
+  weatherF = weather;
+  windF = wind;
+  humidityF = humidity;
+  cloudsF = clouds;
 }
 
 function typedCity(event) {
@@ -56,9 +62,16 @@ function getCurrentLocation(event) {
 function changeFTemp() { 
   let realTemp = document.querySelector("#realTemp");
   let tempF = Math.round ((celsiusTemp * 9) / 5 + 32);
+  let tempMinF = Math.round ((tempMinC * 9) / 5 + 32);
+  let tempMaxF = Math.round ((tempMaxC * 9) / 5 + 32);
+  let tempFeelF = Math.round ((tempFeelC * 9) / 5 + 32);
   realTemp.innerHTML = tempF;
   let metric = document.querySelector("#realMetric");
   metric.innerHTML = "°F"
+  let phraseTemp = document.querySelector("#phrase-temp");
+  let windInfo = document.querySelector("#wind");
+  phraseTemp.innerHTML = `Today the maximum will be ${tempMaxF}°F and the minimum will be ${tempMinF}°F. Forecast of ${weatherF}. Have a wonderful day.`
+  windInfo.innerHTML = `Feels like: ${tempFeelF}°F <br /> Wind: ${windF} meter / sec <br /> Humidity: ${humidityF}% <br /> Cloudiness: ${cloudsF}%`;
 }
 
 function changeCTemp() {
@@ -66,6 +79,10 @@ function changeCTemp() {
   realTemp.innerHTML = celsiusTemp;
   let metric = document.querySelector("#realMetric");
   metric.innerHTML = "°C"
+  let phraseTemp = document.querySelector("#phrase-temp");
+  let windInfo = document.querySelector("#wind");
+  phraseTemp.innerHTML = `Today the maximum will be ${tempMaxC}°C and the minimum will be ${tempMinC}°C. Forecast of ${weatherF}. Have a wonderful day.`
+  windInfo.innerHTML = `Feels like: ${tempFeelC}°C <br /> Wind: ${windF} meter / sec <br /> Humidity: ${humidityF}% <br /> Cloudiness: ${cloudsF}%`;
 }
 
 function tempChange () {
@@ -116,6 +133,13 @@ if (hour <= 9) {
 } else hour = now.getHours();
 
 let celsiusTemp = null;
+let tempFeelC = null;
+let tempMaxC = null;
+let tempMinC = null;
+let weatherF = null;
+let windF = null;
+let humidityF = null;
+let cloudsF = null;
 
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${day}, ${month} ${date} <br /> ${hour}:${minutes}`;
