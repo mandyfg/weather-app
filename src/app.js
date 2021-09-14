@@ -1,6 +1,6 @@
 function showWeather(response){
   let tempC = Math.round(response.data.main.temp);
-  let tempF = Math.round ((tempC * 9) / 5 + 32);
+//  let tempF = Math.round ((tempC * 9) / 5 + 32);
   let tempMax = Math.round(response.data.main.temp_max);
   let tempMin = Math.round(response.data.main.temp_min);
   let tempFeel = Math.round(response.data.main.feels_like);
@@ -24,6 +24,7 @@ function showWeather(response){
   let realTemp = document.querySelector("#realTemp");
   realTemp.innerHTML = `${tempC}`
   console.log(response.data);
+  celsiusTemp = tempC;
 }
 
 function typedCity(event) {
@@ -50,6 +51,29 @@ function searchLocation(position) {
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function changeFTemp() { 
+  let realTemp = document.querySelector("#realTemp");
+  let tempF = Math.round ((celsiusTemp * 9) / 5 + 32);
+  realTemp.innerHTML = tempF;
+  let metric = document.querySelector("#realMetric");
+  metric.innerHTML = "°F"
+}
+
+function changeCTemp() {
+  let realTemp = document.querySelector("#realTemp");
+  realTemp.innerHTML = celsiusTemp;
+  let metric = document.querySelector("#realMetric");
+  metric.innerHTML = "°C"
+}
+
+function tempChange () {
+  if(tempSwitch.checked == true) {
+    changeCTemp();
+  } else {
+    changeFTemp();
+  }
 }
 
 let now = new Date();
@@ -91,6 +115,8 @@ if (hour <= 9) {
   hour = '0' + now.getHours();
 } else hour = now.getHours();
 
+let celsiusTemp = null;
+
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${day}, ${month} ${date} <br /> ${hour}:${minutes}`;
 
@@ -99,5 +125,8 @@ form.addEventListener ("submit", typedCity);
 
 let geoButton = document.querySelector("#loc");
 geoButton.addEventListener ("click", getCurrentLocation);
+
+let tempSwitch = document.querySelector("#myonoffswitch");
+tempSwitch.addEventListener ("change", tempChange);
 
 searchCity("Sao Paulo");
