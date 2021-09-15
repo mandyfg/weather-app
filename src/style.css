@@ -17,6 +17,7 @@ img {
 button {
   border-radius: 30px;
   padding: 7px;
+  margin-bottom: 10px;
 }
 
 .col-5 {

@@ -144,6 +144,7 @@ function englishPage() {
   humidityPhrase.innerHTML = `Humidity: `;
   cloudPhrase.innerHTML = `Cloudiness:`;
   clockUpdate();
+  dateUpdate();
 }
 
 // change language to Portuguese
