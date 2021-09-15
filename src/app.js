@@ -7,6 +7,7 @@ function showWeather(response) {
   let weather = response.data.weather[0].main.toLowerCase();
   let description = response.data.weather[0].description;
   let wind = response.data.wind.speed;
+  let windKm = Math.round(wind * 3.6);
   let humidity = response.data.main.humidity;
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -18,7 +19,7 @@ function showWeather(response) {
   tempMaxC = tempMax;
   tempMinC = tempMin;
   weatherF = weather;
-  windF = wind;
+  windF = windKm;
   humidityF = humidity;
   cloudsF = clouds;
   //changes on the function
@@ -34,7 +35,7 @@ function showWeather(response) {
   feelTempInfo.innerHTML = `${tempFeelC}${realMetric}`;
   humidityInfo.innerHTML = `${humidityF}%`;
   cloudInfo.innerHTML = `${cloudsF}%`;
-  windInfo.innerHTML = `${windF} miles / sec`;
+  windInfo.innerHTML = `${windF} km/h`;
   highestTemp.innerHTML = `${tempMaxC}${realMetric}`;
   lowestTemp.innerHTML = `${tempMinC}${realMetric}`;
   //calling out the next function
@@ -82,9 +83,6 @@ function changeFTemp() {
   realMetric = "°F";
   metric.innerHTML = realMetric; //"°F"
   feelTempInfo.innerHTML = `${tempFeelF}${realMetric}`;
-  humidityInfo.innerHTML = `${humidityF}%`;
-  cloudInfo.innerHTML = `${cloudsF}%`;
-  windInfo.innerHTML = `${wind} miles / sec`;
   highestTemp.innerHTML = `${tempMaxF}${realMetric}`;
   lowestTemp.innerHTML = `${tempMinF}${realMetric}`;
   clockUpdate();
@@ -97,9 +95,6 @@ function changeCTemp() {
   realMetric = "°C";
   metric.innerHTML = realMetric; //"°C";
   feelTempInfo.innerHTML = `${tempFeelC}${realMetric}`;
-  humidityInfo.innerHTML = `${humidityF}%`;
-  cloudInfo.innerHTML = `${cloudsF}%`;
-  windInfo.innerHTML = `${wind} miles / sec`;
   highestTemp.innerHTML = `${tempMaxC}${realMetric}`;
   lowestTemp.innerHTML = `${tempMinC}${realMetric}`;
   clockUpdate();
