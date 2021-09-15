@@ -1,163 +1,169 @@
 body {
-text-align: center;
-background: #f7f7f7;
-font-family: 'Hina Mincho', serif; 
-width: 100%;
-margin: 0px;
+  text-align: center;
+  background: #f7f7f7;
+  font-family: "Hina Mincho", serif;
+  width: 100%;
+  margin: 0px;
 }
 
 div {
-    width: 100%;
+  width: 100%;
 }
 
 img {
   width: 25px;
 }
 
+button {
+  border-radius: 30px;
+  padding: 7px;
+}
+
 .col-5 {
-    padding:0px;
-    margin-top: 60px;
+  padding: 0px;
+  margin-top: 60px;
 }
 
 .col {
-    padding: 0px;
+  padding: 0px;
 }
 
 .container {
-    margin-top: 20px;
-    background: #aeccc6;
-    border-radius: 20px;
+  margin-top: 20px;
+  background: #aeccc6;
+  border-radius: 20px;
 }
 
 .card {
-    background: #aeccc6;
-    border-color: #aeccc6;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-family: 'Coming Soon', cursive;
-    font-size: 18px;
+  background: #aeccc6;
+  border-color: #aeccc6;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Coming Soon", cursive;
+  font-size: 18px;
 }
 
-
 .onoffswitch {
-    position: fixed;
-    left: 1020px;
-    top: 47px; 
-    width: 76px;
-    -webkit-user-select:none; 
-    -moz-user-select:none; 
-    -ms-user-select: none;
+  position: fixed;
+  left: 1020px;
+  top: 47px;
+  width: 76px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .onoffswitch-checkbox {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .onoffswitch-label {
-    display: block; 
-    overflow: hidden; 
-    cursor: pointer;
-    border: 2px solid #999999; 
-    border-radius: 40px;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #999999;
+  border-radius: 40px;
 }
 
 .onoffswitch-inner {
-    display: block; 
-    width: 190%; 
-    margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
+  display: block;
+  width: 190%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
 }
 
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; 
-    float: left; 
-    width: 50%; 
-    height: 32px; 
-    padding: 0; 
-    line-height: 32px;
-    font-size: 18px; 
-    color: white; 
-    font-weight: bold;
-    box-sizing: border-box;
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 32px;
+  padding: 0;
+  line-height: 32px;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
 }
 
 .onoffswitch-inner:before {
-    content: "° C";
-    background-color: #AECCC6; 
-    color: #FFFFFF;
-    text-align:center;
-    padding-right:10px;
+  content: "° C";
+  background-color: #aeccc6;
+  color: #ffffff;
+  text-align: center;
+  padding-right: 10px;
 }
 
 .onoffswitch-inner:after {
-    content: "° F";
-    padding-right: 10px;
-    background-color: #AECCC6; 
-    color: #FFFFFF;
-    text-align: right;
+  content: "° F";
+  padding-right: 10px;
+  background-color: #aeccc6;
+  color: #ffffff;
+  text-align: right;
 }
 
 .onoffswitch-switch {
-    display: block; 
-    width: 18px; 
-    margin: 7px;
-    background: #FFFFFF;
-    position: absolute; 
-    top: 0; 
-    bottom: 0;
-    right: 40px;
-    border: 2px solid #999999; 
-    border-radius: 29px;
-    transition: all 0.3s ease-in 0s; 
+  display: block;
+  width: 18px;
+  margin: 7px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 40px;
+  border: 2px solid #999999;
+  border-radius: 29px;
+  transition: all 0.3s ease-in 0s;
 }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
+  right: 0px;
 }
 
 #wind {
-    margin-top: 30px;
-    font-size: 25px;
-    text-align: right;
+  margin-top: 30px;
+  font-size: 25px;
+  text-align: right;
 }
 
 #loc {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 #forecast {
-    margin: 0 auto;
-    padding: 0px;
+  margin: 0 auto;
+  padding: 0px;
 }
 
 #city {
-    font-family: 'Coming Soon', cursive;
-    font-size: 45px;
+  font-family: "Coming Soon", cursive;
+  font-size: 45px;
 }
 
 #phrase-temp {
-    font-size:20px;
+  font-size: 30px;
+  font-family: "Coming Soon", cursive;
 }
 
 #realTemp {
-    font-size: 120px;
+  font-size: 120px;
 }
 
-#search-form {    
-    width: 70%;
-    padding-left: 10px;
+#search-form {
+  width: 70%;
+  padding-left: 10px;
 }
 
-#icon {    
-    width: 120px;
+#icon {
+  width: 120px;
 }
 
 #realMetric {
-    font-size: 25px;
+  font-size: 25px;
 }
