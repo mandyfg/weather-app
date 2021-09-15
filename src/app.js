@@ -375,6 +375,4 @@ frenchButton.addEventListener("click", frenchPage);
 //calling functions to start the page
 clockUpdate();
 dateUpdate();
-
-//starting city
-searchCity("Sao Paulo");
+getCurrentLocation();
