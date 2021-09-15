@@ -2,8 +2,8 @@ body {
   text-align: center;
   background: #f7f7f7;
   font-family: "Hina Mincho", serif;
-  width: 100%;
-  margin: 0px;
+  width: 55%;
+  margin-left: 20px;
 }
 
 div {
@@ -21,11 +21,13 @@ img {
 
 .col-4 {
     margin-top: 30px;
+    text-align: left;
 }
 
 .col-3 {
   padding: 0px;
-  margin-top: 60px;
+  margin-top: 95px;
+  margin-bottom: 0px;
 }
 
 .col {
@@ -45,14 +47,11 @@ img {
   font-size: 18px;
 }
 
-.onoffswitch {
+.onoffswitch {    
   position: fixed;
-  left: 1020px;
-  top: 47px;
-  width: 76px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  margin-left: 570px;
+  margin-top: 7px;
+  width: 5%;
 }
 
 .onoffswitch-checkbox {
