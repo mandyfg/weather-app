@@ -1,8 +1,6 @@
 //weather search on the API in °C
 function showWeather(response) {
   let tempC = Math.round(response.data.main.temp);
-  let tempMax = Math.round(response.data.main.temp_max);
-  let tempMin = Math.round(response.data.main.temp_min);
   let tempFeel = Math.round(response.data.main.feels_like);
   let weather = response.data.weather[0].main.toLowerCase();
   let description = response.data.weather[0].description;
@@ -17,8 +15,6 @@ function showWeather(response) {
   //updating the function API results to variables globally
   celsiusTemp = tempC;
   tempFeelC = tempFeel;
-  tempMaxC = tempMax;
-  tempMinC = tempMin;
   weatherF = weather;
   windF = windKm;
   humidityF = humidity;
@@ -37,9 +33,6 @@ function showWeather(response) {
   humidityInfo.innerHTML = `${humidityF}%`;
   cloudInfo.innerHTML = `${cloudsF}%`;
   windInfo.innerHTML = `${windF} km/h`;
-  highestTemp.innerHTML = `${tempMaxC}${realMetric}`;
-  lowestTemp.innerHTML = `${tempMinC}${realMetric}`;
-  //calling out the next function
   englishPage();
   tempChange();
   searchForecast(coords);
@@ -123,15 +116,11 @@ function getCurrentLocation() {
 //change temperature to °F
 function changeFTemp() {
   let tempF = Math.round((celsiusTemp * 9) / 5 + 32);
-  let tempMinF = Math.round((tempMinC * 9) / 5 + 32);
-  let tempMaxF = Math.round((tempMaxC * 9) / 5 + 32);
   let tempFeelF = Math.round((tempFeelC * 9) / 5 + 32);
   realTemp.innerHTML = tempF;
   realMetric = "°F";
   metric.innerHTML = realMetric; //"°F"
   feelTempInfo.innerHTML = `${tempFeelF}${realMetric}`;
-  highestTemp.innerHTML = `${tempMaxF}${realMetric}`;
-  lowestTemp.innerHTML = `${tempMinF}${realMetric}`;
   clockUpdate();
   //aqui colocar uma color change em F
 }
@@ -142,8 +131,6 @@ function changeCTemp() {
   realMetric = "°C";
   metric.innerHTML = realMetric; //"°C";
   feelTempInfo.innerHTML = `${tempFeelC}${realMetric}`;
-  highestTemp.innerHTML = `${tempMaxC}${realMetric}`;
-  lowestTemp.innerHTML = `${tempMinC}${realMetric}`;
   clockUpdate();
   //colorChange();
 }
@@ -359,8 +346,6 @@ if (hour <= 9) {
 //variables used on functions to be updated
 let celsiusTemp = null;
 let tempFeelC = null;
-let tempMaxC = null;
-let tempMinC = null;
 let weatherF = null;
 let windF = null;
 let humidityF = null;
