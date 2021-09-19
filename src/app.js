@@ -52,23 +52,45 @@ function searchForecast (coordinates) {
   axios.get(apiUrl).then(showForecast);
 }
 
+//format dates of forecast
+function formatDay (timestamp) {
+  let date = new Date(timestamp * 1000); 
+  let day = date.getDay();
+  forecastTimestamp = day
+  return days[forecastTimestamp];
+}
+
+
 //show forecast
 function showForecast(response) {
   console.log(response.data);
-  let forecastId = `<div class="row" id="forecast">`;
-  let forecastCode = `<div class="col">
+  let forecastInfo = response.data.daily;
+  let forecastCode = `<div class="row" id="forecast">`;
+  forecastInfo.forEach(function (forecastDay, index) {    
+ if (index < 5) {
+  let forecastMax = Math.round(forecastDay.temp.max);
+  let forecastMin = Math.round(forecastDay.temp.min);
+  let forecastDate = forecastDay.dt
+  forecastCode = forecastCode + `
+  <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            Monday
+                            <span class="forecast-day">${formatDay (forecastDate)} </span>                            
                             <br />
-                            <img src="images/brightness-high.svg" width="30px" alt="sun" />
+                            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
                             <br />
-                            <p class="temperature">22° / 10°</p>
+                            <p> <span class="temperature-forecast-max">${forecastMax}° </span> 
+                            <span class="temperature-forecast-min">/ ${forecastMin}°</span>
+                            </p>
                         </div>
                     </div>
                 </div>`;
-  let forecastEnd = `</div>`;
-             forecast.innerHTML = forecastId + forecastCode + forecastEnd;
+forecastMaxC = forecastMax;
+forecastMinC = forecastMin;
+}
+});
+forecastCode = forecastCode + `</div>`;
+forecast.innerHTML = forecastCode;
 }
 
 //send city of the form to the API
@@ -344,6 +366,9 @@ let windF = null;
 let humidityF = null;
 let cloudsF = null;
 let realMetric = null;
+let forecastMaxC = null;
+let forecastMinC = null;
+let forecastTimestamp = null;
 let apiKey = "c89dd2e06d6689349deb2d1c5444e6e1";
 
 //variables used for innerHTML on all functions
