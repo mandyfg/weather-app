@@ -2,6 +2,7 @@ body {
   text-align: center;
   background: #f7f7f7;
   font-family: "Hina Mincho", serif;
+  min-width: 70%;
   width: 55%;
   margin-left: 20px;
 }
@@ -19,6 +20,10 @@ img {
   padding: 10px;
 }
 
+.col-5 {
+  margin-top: 20px;
+}
+
 .col-4 {
     margin-top: 30px;
     text-align: left;
@@ -26,7 +31,7 @@ img {
 
 .col-3 {
   padding: 0px;
-  margin-top: 95px;
+  margin-top: 70px;
   margin-bottom: 0px;
 }
 
@@ -49,8 +54,7 @@ img {
 
 .onoffswitch {    
   position: fixed;
-  margin-left: 570px;
-  margin-top: 7px;
+  margin-left: 130px;
   width: 5%;
 }
 

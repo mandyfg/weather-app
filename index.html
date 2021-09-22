@@ -29,28 +29,27 @@
                     <button class="btn btn-outline-success" id="loc">
                         <img src="images/geolocation.png" alt="geo-icon" />
                     </button>
-                    <div class="onoffswitch">
-                        <input type="checkbox" onchange="tempChange(this);" name="onoffswitch"
-                            class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked />
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
-                        </label>
-                    </div>
                 </form>
                 <br />
             </div>
         </div>
+        <div class="onoffswitch">
+            <input type="checkbox" onchange="tempChange(this);" name="onoffswitch" class="onoffswitch-checkbox"
+                id="myonoffswitch" tabindex="0" checked />
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
         <div class="row">
+            <div class="col-3">
+                <h2><span id="realTemp">1</span><span id="realMetric"> °C</span></h2>
+            </div>
             <div class="col-5" id="test">
                 <h2 id="city" id="current-city">Sao Paulo, Brazil</h2>
-                <hr />
                 <h3 id="current-day">Date here</h3>
                 <h3 id="current-time">Hour here</h3>
                 <img src="" alt="" id="icon" />
-            </div>
-            <div class="col-3">
-                <h2><span id="realTemp">1</span><span id="realMetric"> °C</span></h2>
             </div>
             <div class="col-4">
                 <h4>
