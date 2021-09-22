@@ -127,6 +127,10 @@ img {
   right: 0px;
 }
 
+.temperature-forecast-max {
+  font-weight: bold;
+}
+
 #wind {
   margin-top: 30px;
   font-size: 25px;

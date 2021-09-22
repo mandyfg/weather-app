@@ -19,6 +19,8 @@ function showWeather(response) {
   windF = windKm;
   humidityF = humidity;
   cloudsF = clouds;
+  lat = coords.lat;
+  lon = coords.lon;
   //changes on the function
   icon.setAttribute(
     "src",
@@ -59,7 +61,7 @@ function showForecast(response) {
   console.log(response.data);
   let forecastInfo = response.data.daily;
   let forecastCode = `<div class="row" id="forecast">`;
-  forecastInfo.forEach(function (forecastDay, index) {    
+  forecastInfo.map(function (forecastDay, index) {    
  if (index < 5) {
   let forecastMax = Math.round(forecastDay.temp.max);
   let forecastMin = Math.round(forecastDay.temp.min);
@@ -68,16 +70,17 @@ function showForecast(response) {
   <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <span class="forecast-day">${formatDay (forecastDate)} </span>                            
+                            <span class="forecast-day">${formatDay (forecastDate)}</span>                            
                             <br />
                             <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
                             <br />
-                            <p> <span class="temperature-forecast-max">${forecastMax}° </span> 
+                            <p id="forecast-temp"> <span class="temperature-forecast-max">${forecastMax}° </span> 
                             <span class="temperature-forecast-min">/ ${forecastMin}°</span>
                             </p>
                         </div>
                     </div>
                 </div>`;
+forecastDaily = forecastInfo;
 forecastMaxC = forecastMax;
 forecastMinC = forecastMin;
 }
@@ -123,6 +126,44 @@ function changeFTemp() {
   feelTempInfo.innerHTML = `${tempFeelF}${realMetric}`;
   clockUpdate();
   //aqui colocar uma color change em F
+  
+  // function again to loop + change weather
+function searchForecastF () {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecastF);
+};
+searchForecastF();
+function showForecastF(response) {
+let forecastInfo = response.data.daily;
+let forecastCode = '';
+forecastInfo.forEach(function (forecastDay, index) {   
+ if (index < 5) {
+  let forecastMaxC = Math.round(forecastDay.temp.max);
+  let forecastMinC = Math.round(forecastDay.temp.min);
+  let forecastMaxF = Math.round((forecastMaxC * 9) / 5 + 32);
+  let forecastMinF = Math.round((forecastMinC * 9) / 5 + 32);
+  let forecastDate = forecastDay.dt
+  forecastCode = forecastCode + `
+  <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="forecast-day">${formatDay (forecastDate)}</span>                            
+                            <br />
+                            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
+                            <br />
+                            <p> <span class="temperature-forecast-max">${forecastMaxF}° </span> 
+                            <span class="temperature-forecast-min">/ ${forecastMinF}°</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>`;
+forecastCode = forecastCode + `</div>`;         
+}
+
+});
+forecastCode = forecastCode + `</div>`;
+forecast.innerHTML = forecastCode;
+}
 }
 
 //change temperature to °C
@@ -133,6 +174,41 @@ function changeCTemp() {
   feelTempInfo.innerHTML = `${tempFeelC}${realMetric}`;
   clockUpdate();
   //colorChange();
+  // function again to loop + change weather
+function searchForecastC () {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecastF);
+};
+searchForecastC();
+function showForecastF(response) {
+let forecastInfo = response.data.daily;
+let forecastCode = '';
+forecastInfo.forEach(function (forecastDay, index) {   
+ if (index < 5) {
+  let forecastMaxC = Math.round(forecastDay.temp.max);
+  let forecastMinC = Math.round(forecastDay.temp.min);
+  let forecastDate = forecastDay.dt
+  forecastCode = forecastCode + `
+  <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="forecast-day">${formatDay (forecastDate)}</span>                            
+                            <br />
+                            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
+                            <br />
+                            <p> <span class="temperature-forecast-max">${forecastMaxC}° </span> 
+                            <span class="temperature-forecast-min">/ ${forecastMinC}°</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>`;
+forecastCode = forecastCode + `</div>`;         
+}
+
+});
+forecastCode = forecastCode + `</div>`;
+forecast.innerHTML = forecastCode;
+}
 }
 
 //check temperature switch
@@ -188,7 +264,23 @@ function portuguesePage() {
   humidityPhrase.innerHTML = `Umidade: `;
   cloudPhrase.innerHTML = `Chuva: `;
   currentDay.innerHTML = `${portugueseDay}, ${portugueseMonth} ${date}`;
-  clockUpdate();
+  clockUpdate();  
+//let forecastWeekDay = document.querySelector(".forecast-day");
+ // if (forecastWeekDay.innerHTML === "Monday") {
+  //  forecastWeekDay.innerHTML === "Segunda"
+  //} else if (forecastWeekDay.innerHTML === "Tuesday") {
+  //  forecastWeekDay.innerHTML === "Terça"
+  //} else if (forecastWeekDay.innerHTML === "Wednesday") {
+  //  forecastWeekDay.innerHTML === "Quarta"
+ // } else if (forecastWeekDay.innerHTML === "Thursday") {
+ //   forecastWeekDay.innerHTML === "Quinta"
+ // } else if (forecastWeekDay.innerHTML === "Friday") {
+ //   forecastWeekDay.innerHTML === "Sexta"
+//  } else if (forecastWeekDay.innerHTML === "Saturday") {
+ //   forecastWeekDay.innerHTML === "Sábado"
+ // } else if (forecastWeekDay.innerHTML === "Sunday") {
+//    forecastWeekDay.innerHTML === "Domingo"
+//  };
 }
 
 // change language to Spanish
@@ -354,6 +446,9 @@ let realMetric = null;
 let forecastMaxC = null;
 let forecastMinC = null;
 let forecastTimestamp = null;
+let forecastDaily = null;
+let lat = null;
+let lon = null;
 let apiKey = "c89dd2e06d6689349deb2d1c5444e6e1";
 
 //variables used for innerHTML on all functions
@@ -375,6 +470,7 @@ let cloudPhrase = document.querySelector("#cloudiness");
 let highestTemp = document.querySelector("#highest-temp");
 let lowestTemp = document.querySelector("#lowest-temp");
 let forecast = document.querySelector("#forecast");
+let forecastWeekDay = document.querySelector("#forecast-day");
 
 //current city
 let form = document.querySelector("#search-form");
