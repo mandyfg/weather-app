@@ -3,8 +3,8 @@ body {
   background: #f7f7f7;
   font-family: "Hina Mincho", serif;
   min-width: 70%;
-  width: 55%;
-  margin-left: 20px;
+  /* width: 55%;
+  margin-left: 20px;*/
 }
 
 div {

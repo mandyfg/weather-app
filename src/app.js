@@ -37,13 +37,12 @@ function showWeather(response) {
   windInfo.innerHTML = `${windF} km/h`;
   englishPage();
   tempChange();
-  searchForecast(coords);
   //console.log(response.data);
 }
 
 //search forecast on the API
-function searchForecast (coordinates) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+function searchForecast () {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showForecast);
 }
 
@@ -175,40 +174,7 @@ function changeCTemp() {
   clockUpdate();
   //colorChange();
   // function again to loop + change weather
-function searchForecastC () {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showForecastF);
-};
-searchForecastC();
-function showForecastF(response) {
-let forecastInfo = response.data.daily;
-let forecastCode = '';
-forecastInfo.forEach(function (forecastDay, index) {   
- if (index < 5) {
-  let forecastMaxC = Math.round(forecastDay.temp.max);
-  let forecastMinC = Math.round(forecastDay.temp.min);
-  let forecastDate = forecastDay.dt
-  forecastCode = forecastCode + `
-  <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <span class="forecast-day">${formatDay (forecastDate)}</span>                            
-                            <br />
-                            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
-                            <br />
-                            <p> <span class="temperature-forecast-max">${forecastMaxC}° </span> 
-                            <span class="temperature-forecast-min">/ ${forecastMinC}°</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>`;
-forecastCode = forecastCode + `</div>`;         
-}
-
-});
-forecastCode = forecastCode + `</div>`;
-forecast.innerHTML = forecastCode;
-}
+searchForecast();
 }
 
 //check temperature switch
