@@ -279,6 +279,34 @@ function frenchPage() {
   clockUpdate();
 }
 
+//function for dark mode
+function darkMode() {
+  let darkBackground = document.getElementById("background");
+  let darkForm = document.getElementById("answer-form");
+  let page = document.getElementById("page");
+  darkBackground.style.backgroundColor = "#233142";
+  darkForm.style.backgroundColor = "#233142";
+  page.style.color = "white";
+}
+
+//function for light mode
+function lightMode() {
+  let lightBackground = document.getElementById("background");
+  let lightForm = document.getElementById("answer-form");
+  let page = document.getElementById("page");
+  lightBackground.style.backgroundColor = "#f7f7f7";
+  lightForm.style.backgroundColor = "white";
+  page.style.color = "black";
+}
+
+function themeFunction() {
+  if (sun.classList.toggle("visible") === true) {
+lightMode();
+  } else if (moon.classList.toggle("visible")) {
+    darkMode();
+  } else (sun.classList.toggle("visible"));
+}
+
 //current date + month
 let now = new Date();
 let date = now.getDate();
@@ -465,6 +493,12 @@ portugueseButton.addEventListener("click", portuguesePage);
 //french language button
 let frenchButton = document.querySelector("#french");
 frenchButton.addEventListener("click", frenchPage);
+
+//dark mode switch
+let sun = document.querySelector(".sun");
+let moon = document.querySelector(".moon");
+let themeButton = document.querySelector(".container-1");
+themeButton.addEventListener("click", themeFunction);
 
 //calling functions to start the page
 clockUpdate();

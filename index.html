@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
-<body>
+<body id="background">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -28,6 +28,13 @@
                     </button>
                     <button class="btn btn-outline-success" id="loc">
                         <img src="images/geolocation.png" alt="geo-icon" />
+                    </button>
+                    <button class="container-1" aria-label="Toggle color mode" title="Toggle color mode">
+                        <div class="sun visible"></div>
+                        <div class="moon">
+                            <div class="star"></div>
+                            <div class="star small"></div>
+                        </div>
                     </button>
                 </form>
                 <br />
@@ -71,7 +78,7 @@
         <div class="row" id="forecast">
         </div>
     </div>
-    <p class="mt-30">
+    <p class="mt-30" id="page">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash"
             viewBox="0 0 16 16">
             <path
