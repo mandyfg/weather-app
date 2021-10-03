@@ -50,8 +50,22 @@ function searchForecast () {
 function formatDay (timestamp) {
   let date = new Date(timestamp * 1000); 
   let day = date.getDay();
+  let english = document.getElementById("english");
+  let spanish = document.getElementById("spanish");
+  let portuguese = document.getElementById("portuguese");
+  let french = document.getElementById("french");
   forecastTimestamp = day
+  if (english.checked === true) {
   return days[forecastTimestamp];
+  } else if (spanish.checked === true) {
+    return spanishDays[forecastTimestamp];
+  } else if (portuguese.checked === true) {
+    return portugueseDays[forecastTimestamp];
+  } else if (french.checked === true) {
+    return frenchDays[forecastTimestamp];
+  } else {
+    return days[forecastTimestamp];
+  }
 }
 
 
@@ -124,9 +138,8 @@ function changeFTemp() {
   metric.innerHTML = realMetric; //"°F"
   feelTempInfo.innerHTML = `${tempFeelF}${realMetric}`;
   clockUpdate();
-  //aqui colocar uma color change em F
   
-  // function again to loop + change weather
+// function again to loop + change weather
 function searchForecastF () {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showForecastF);
@@ -155,10 +168,9 @@ forecastInfo.forEach(function (forecastDay, index) {
                             </p>
                         </div>
                     </div>
-                </div>`;
-forecastCode = forecastCode + `</div>`;         
+                </div>`;                
+forecastCode = forecastCode + `</div>`;     
 }
-
 });
 forecastCode = forecastCode + `</div>`;
 forecast.innerHTML = forecastCode;
@@ -172,8 +184,6 @@ function changeCTemp() {
   metric.innerHTML = realMetric; //"°C";
   feelTempInfo.innerHTML = `${tempFeelC}${realMetric}`;
   clockUpdate();
-  //colorChange();
-  // function again to loop + change weather
 searchForecast();
 }
 
@@ -193,13 +203,14 @@ function clockUpdate() {
 
 //update day and month
 function dateUpdate() {
-  currentDay.innerHTML = `${englishDay}, ${englishMonth} ${date}`;
-}
-
-// update color
-function colorChange() {
-  if (tempC < 18) {
-    document.getElementsByClassName("container").style.background = "blue";
+  if (date === 1) {
+currentDay.innerHTML = `${englishDay}, ${englishMonth} ${date}st`;
+  } else if (date === 2) {
+    currentDay.innerHTML = `${englishDay}, ${englishMonth} ${date}nd`;
+  } else if (date === 3) {
+    currentDay.innerHTML = `${englishDay}, ${englishMonth} ${date}rd`;
+  } else {
+    currentDay.innerHTML = `${englishDay}, ${englishMonth} ${date}`;
   }
 }
 
@@ -215,7 +226,8 @@ function englishPage() {
   humidityPhrase.innerHTML = `Humidity: `;
   cloudPhrase.innerHTML = `Cloudiness:`;
   clockUpdate();
-  dateUpdate();
+  dateUpdate();  
+  searchForecast();
 }
 
 // change language to Portuguese
@@ -229,24 +241,9 @@ function portuguesePage() {
   feelPhrase.innerHTML = `Sensação térmica: `;
   humidityPhrase.innerHTML = `Umidade: `;
   cloudPhrase.innerHTML = `Chuva: `;
-  currentDay.innerHTML = `${portugueseDay}, ${portugueseMonth} ${date}`;
-  clockUpdate();  
-//let forecastWeekDay = document.querySelector(".forecast-day");
- // if (forecastWeekDay.innerHTML === "Monday") {
-  //  forecastWeekDay.innerHTML === "Segunda"
-  //} else if (forecastWeekDay.innerHTML === "Tuesday") {
-  //  forecastWeekDay.innerHTML === "Terça"
-  //} else if (forecastWeekDay.innerHTML === "Wednesday") {
-  //  forecastWeekDay.innerHTML === "Quarta"
- // } else if (forecastWeekDay.innerHTML === "Thursday") {
- //   forecastWeekDay.innerHTML === "Quinta"
- // } else if (forecastWeekDay.innerHTML === "Friday") {
- //   forecastWeekDay.innerHTML === "Sexta"
-//  } else if (forecastWeekDay.innerHTML === "Saturday") {
- //   forecastWeekDay.innerHTML === "Sábado"
- // } else if (forecastWeekDay.innerHTML === "Sunday") {
-//    forecastWeekDay.innerHTML === "Domingo"
-//  };
+  currentDay.innerHTML = `${portugueseDay}, ${date} de ${portugueseMonth}`;
+  clockUpdate();    
+  searchForecast();
 }
 
 // change language to Spanish
@@ -260,8 +257,9 @@ function spanishPage() {
   feelPhrase.innerHTML = `Sensación térmica: `;
   humidityPhrase.innerHTML = `Humedad: `;
   cloudPhrase.innerHTML = `Nubosidad: `;
-  currentDay.innerHTML = `${spanishDay}, ${spanishMonth} ${date}`;
+  currentDay.innerHTML = `${spanishDay}, ${date} de ${spanishMonth}`;
   clockUpdate();
+  searchForecast();
 }
 
 // change language to French
@@ -275,8 +273,9 @@ function frenchPage() {
   feelPhrase.innerHTML = `T. ressentie: `;
   humidityPhrase.innerHTML = `Humidité: `;
   cloudPhrase.innerHTML = `Nébulosité: `;
-  currentDay.innerHTML = `${frenchDay}, ${frenchMonth} ${date}`;
-  clockUpdate();
+  currentDay.innerHTML = `${frenchDay}, ${date} ${frenchMonth}`;
+  clockUpdate();  
+  searchForecast();
 }
 
 //function for dark mode
@@ -284,21 +283,26 @@ function darkMode() {
   let darkBackground = document.getElementById("background");
   let darkForm = document.getElementById("answer-form");
   let page = document.getElementById("page");
+  let language = document.getElementById("language");
   darkBackground.style.backgroundColor = "#233142";
   darkForm.style.backgroundColor = "#233142";
   page.style.color = "white";
+  language.style.color = "white";
 }
 
 //function for light mode
 function lightMode() {
   let lightBackground = document.getElementById("background");
   let lightForm = document.getElementById("answer-form");
-  let page = document.getElementById("page");
+  let page = document.getElementById("page");  
+  let language = document.getElementById("language");
   lightBackground.style.backgroundColor = "#f7f7f7";
   lightForm.style.backgroundColor = "white";
   page.style.color = "black";
+  language.style.color = "black"
 }
 
+//function for theme switch
 function themeFunction() {
   if (sun.classList.toggle("visible") === true) {
 lightMode();

@@ -87,10 +87,20 @@
         This project was coded by Amanda Felizardo Goes, and it's
         <a href="https://github.com/mandyfg/weather-app">open-sourced</a>.
     </p>
-    <button class="language" id="english">English</button>
-    <button class="language" id="spanish">Español</button>
-    <button class="language" id="portuguese">Português</button>
-    <button class="language" id="french">Français</button>
+    <form id="language">
+    <label>
+        <input type="radio" class="language" value="1" name="language" id="english" checked />English
+    </label>
+    <label>
+        <input type="radio" class="language" value="2" name="language" id="spanish" />Spanish
+    </label>
+    <label>
+        <input type="radio" class="language" value="3" name="language" id="portuguese" />Portuguese
+    </label>
+    <label>
+        <input type="radio" class="language" value="4" name="language" id="french" />French
+    </label>
+    </form>
     <script src="src/app.js"></script>
 </body>
 
