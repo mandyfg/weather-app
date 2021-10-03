@@ -36,7 +36,6 @@ function showWeather(response) {
   cloudInfo.innerHTML = `${cloudsF}%`;
   windInfo.innerHTML = `${windF} km/h`;
   tempChange();
-  //console.log(response.data);
 }
 
 //search forecast on the API
@@ -282,14 +281,14 @@ function darkMode() {
   let container = document.getElementById("container");
   let darkForm = document.getElementById("answer-form");
   let page = document.getElementById("page");
-  let language = document.getElementById("language")
+  let language = document.getElementById("language");
   darkBackground.style.backgroundColor = "#1a2639";
   darkBackground.style.color = "white";
   darkForm.style.backgroundColor = "#1a2639";
   darkForm.style.color = "white";
   container.style.backgroundColor =  "#3e4a61";
   page.style.color = "white";
-  language.style.color = "white";  
+  language.style.color = "white";
 }
 
 //function for light mode

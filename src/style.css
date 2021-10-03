@@ -298,3 +298,7 @@ img {
 #realMetric {
   font-size: 25px;
 }
+
+div#forecast.row img {
+  width: 40px;
+}
