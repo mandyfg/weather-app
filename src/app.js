@@ -35,7 +35,6 @@ function showWeather(response) {
   humidityInfo.innerHTML = `${humidityF}%`;
   cloudInfo.innerHTML = `${cloudsF}%`;
   windInfo.innerHTML = `${windF} km/h`;
-  englishPage();
   tempChange();
   //console.log(response.data);
 }
@@ -67,7 +66,6 @@ function formatDay (timestamp) {
     return days[forecastTimestamp];
   }
 }
-
 
 //show forecast
 function showForecast(response) {
@@ -283,8 +281,6 @@ function darkMode() {
   let darkBackground = document.getElementById("background");
   let container = document.getElementById("container");
   let darkForm = document.getElementById("answer-form");
-  let darkForecast = document.querySelectorAll("#forecast.card")
- // let switch = document.getElementById("myonoffswitch");
   let page = document.getElementById("page");
   let language = document.getElementById("language")
   darkBackground.style.backgroundColor = "#1a2639";
@@ -292,10 +288,8 @@ function darkMode() {
   darkForm.style.backgroundColor = "#1a2639";
   darkForm.style.color = "white";
   container.style.backgroundColor =  "#3e4a61";
-  //switch.style.backgroundColor =  "#3e4a61";
   page.style.color = "white";
   language.style.color = "white";  
-  darkForecast.style.backgroundColor =  "#3e4a61";
 }
 
 //function for light mode
@@ -305,14 +299,10 @@ function lightMode() {
   let container = document.getElementById("container");
   let page = document.getElementById("page");  
   let language = document.getElementById("language");  
-  //let lightForecast = document.getElementById("container-forecast");
- // let switch = document.getElementById("myonoffswitch");
   lightBackground.style.backgroundColor = "#f7f7f7"; 
   lightForm.style.backgroundColor = "white";
   lightForm.style.color = "black";
   container.style.backgroundColor = "#aeccc6";
-  //lightForecast.style.backgroundColor  = "#aeccc6";
- // switch.style.backgroundColor =  "#aeccc6";
   lightBackground.style.color = "black";
   page.style.color = "black";
   language.style.color = "black"
@@ -321,7 +311,7 @@ function lightMode() {
 //function for theme switch
 function themeFunction() {
   if (sun.classList.toggle("visible") === true) {
-lightMode();
+    lightMode();
   } else if (moon.classList.toggle("visible")) {
     darkMode();
   } else (sun.classList.toggle("visible"));
