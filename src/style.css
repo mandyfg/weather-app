@@ -32,17 +32,19 @@ img {
 
 .col {
   padding: 0px;
+  margin-bottom: 15px;
 }
 
-.container {
+body #container.container {
   margin-top: 20px;
-  background: #aeccc6;
+  background:#aeccc6; 
   border-radius: 20px;
 }
 
 .card {
-  background: #aeccc6;
-  border-color: #aeccc6;
+  background: #29a19c;
+  opacity: 80%;
+  border-style: none;
   font-family: "Coming Soon", cursive;
   font-size: 18px;
 }
@@ -290,7 +292,7 @@ img {
 }
 
 #icon {
-  width: 120px;
+  width: 140px;
 }
 
 #realMetric {

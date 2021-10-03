@@ -281,23 +281,39 @@ function frenchPage() {
 //function for dark mode
 function darkMode() {
   let darkBackground = document.getElementById("background");
+  let container = document.getElementById("container");
   let darkForm = document.getElementById("answer-form");
+  let darkForecast = document.querySelectorAll("#forecast.card")
+ // let switch = document.getElementById("myonoffswitch");
   let page = document.getElementById("page");
-  let language = document.getElementById("language");
-  darkBackground.style.backgroundColor = "#233142";
-  darkForm.style.backgroundColor = "#233142";
+  let language = document.getElementById("language")
+  darkBackground.style.backgroundColor = "#1a2639";
+  darkBackground.style.color = "white";
+  darkForm.style.backgroundColor = "#1a2639";
+  darkForm.style.color = "white";
+  container.style.backgroundColor =  "#3e4a61";
+  //switch.style.backgroundColor =  "#3e4a61";
   page.style.color = "white";
-  language.style.color = "white";
+  language.style.color = "white";  
+  darkForecast.style.backgroundColor =  "#3e4a61";
 }
 
 //function for light mode
 function lightMode() {
   let lightBackground = document.getElementById("background");
-  let lightForm = document.getElementById("answer-form");
+  let lightForm = document.getElementById("answer-form");  
+  let container = document.getElementById("container");
   let page = document.getElementById("page");  
-  let language = document.getElementById("language");
-  lightBackground.style.backgroundColor = "#f7f7f7";
+  let language = document.getElementById("language");  
+  //let lightForecast = document.getElementById("container-forecast");
+ // let switch = document.getElementById("myonoffswitch");
+  lightBackground.style.backgroundColor = "#f7f7f7"; 
   lightForm.style.backgroundColor = "white";
+  lightForm.style.color = "black";
+  container.style.backgroundColor = "#aeccc6";
+  //lightForecast.style.backgroundColor  = "#aeccc6";
+ // switch.style.backgroundColor =  "#aeccc6";
+  lightBackground.style.color = "black";
   page.style.color = "black";
   language.style.color = "black"
 }
